@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
+import '../FetchNews/fetchNews.css'
 
 const FetchNews = () => {
   const [data, setData] = useState([]);
@@ -24,26 +25,26 @@ const FetchNews = () => {
 
       <div className="container">
         <div className="row">
-          {data.map((value, key) => {
-            return (
-              <div className="col-3" key={key}>
-                <div className="card" style={{ width: "18rem" }}>
+          {data.map((value, key) => (
+            <div className="col-4 mb-4" key={key}>
+              <div className="card news-card h-100">
+                {value.urlToImage && (
                   <img
                     src={value.urlToImage}
                     className="card-img-top"
-                    alt="..."
+                    alt={value.title}
                   />
-                  <div className="card-body">
-                    <h5 className="card-title">{value.title}</h5>
-                    <p className="card-text">{value.description}</p>
-                    <a href="#" className="btn btn-primary">
-                      Main News
-                    </a>
-                  </div>
+                )}
+                <div className="card-body d-flex flex-column">
+                  <h5 className="card-title">{value.title}</h5>
+                  <p className="card-text">{value.description}</p>
+                  <a href={value.url} className="btn btn-primary mt-auto">
+                    Read More
+                  </a>
                 </div>
               </div>
-            );
-          })}
+            </div>
+          ))}
         </div>
       </div>
     </>
@@ -51,4 +52,3 @@ const FetchNews = () => {
 };
 
 export default FetchNews;
-

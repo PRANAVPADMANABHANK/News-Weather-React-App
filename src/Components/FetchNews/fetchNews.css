@@ -1,0 +1,11 @@
+.news-card {
+    width: 100%;
+  }
+  
+  .news-card .card-img-top {
+    transition: transform 0.3s ease;
+  }
+  
+  .news-card .card-img-top:hover {
+    transform: scale(1.05);
+  }

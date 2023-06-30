@@ -27,3 +27,7 @@ main {
   cursor: pointer;
   vertical-align: middle;
 }
+.navbar__link{
+  text-decoration: none;
+  color: white;
+}

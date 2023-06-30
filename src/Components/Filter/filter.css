@@ -1,0 +1,31 @@
+.filter-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.dropdown {
+  position: relative;
+}
+
+.dropdown-toggle {
+  background-color: #007bff; /* Customize the button background color */
+  color: #fff; /* Customize the button text color */
+}
+
+.dropdown-toggle:hover {
+  background-color: #0069d9; /* Customize the button background color on hover */
+}
+
+.dropdown-menu {
+  min-width: 150px; /* Adjust the width as needed */
+}
+
+.dropdown-item {
+  color: #333; /* Customize the dropdown item text color */
+}
+
+.dropdown-item:hover {
+  background-color: #f8f9fa; /* Customize the dropdown item background color on hover */
+}

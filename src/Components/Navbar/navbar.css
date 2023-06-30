@@ -10,7 +10,7 @@ main {
   display: flex;
   align-items: center;
 
-  background: rebeccapurple;
+  background: rgb(29, 24, 24);
   color: white;
   font-family: Helvetica;
   font-weight: 300;

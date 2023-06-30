@@ -1,28 +1,25 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import axios from "axios";
 import '../FetchNews/fetchNews.css'
 
 const FetchNews = () => {
   const [data, setData] = useState([]);
-
+  useEffect(()=>{
+    getNews()
+  },[])
   const getNews = () => {
     axios
       .get(
-        "https://newsapi.org/v2/top-headlines?country=us&apiKey=7d3bb61252064a1b82860e8f5f6fa1b9"
+        "https://newsapi.org/v2/everything?q=apple&from=2023-06-28&to=2023-06-28&sortBy=popularity&apiKey=7d3bb61252064a1b82860e8f5f6fa1b9"
       )
       .then((response) => {
+        console.log(response)
         setData(response.data.articles);
       });
   };
 
   return (
     <>
-      <div className="container">
-        <button className="btn btn-success" onClick={getNews}>
-          Fetch News
-        </button>
-      </div>
-
       <div className="container">
         <div className="row">
           {data.map((value, key) => (

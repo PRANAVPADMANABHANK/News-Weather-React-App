@@ -1,14 +1,12 @@
-import FetchNews from './Components/FetchNews/fetchNews';
-import Navbar from './Components/Navbar/navbar';
-
+import React from 'react';
+import Home from './Pages/home';
 import './App.css';
 
 
 function App() {
   return (
     <div className="App">
-      <Navbar/>
-      <FetchNews/>
+      <Home/>
     </div>
   );
 }

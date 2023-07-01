@@ -34,7 +34,7 @@
   position: absolute;
   top: calc(100% + 5px);
   left: 0;
-  width: 90px; /* Adjust the width as desired */
+  width: 90px; 
   background-color: #fff;
   border: 1px solid #ccc;
   border-radius: 4px;

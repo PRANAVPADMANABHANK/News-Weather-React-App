@@ -6,6 +6,7 @@ export const fetchNews = createAsyncThunk('fetchNews', async ()=>{
     return response.json();
 })
 
+
 const newsSlice = createSlice({
   name: "news",
   initialState:{
@@ -13,7 +14,7 @@ const newsSlice = createSlice({
     data: null
   },
   extraReducers: (builder)=>{
-    builder.addCase(fetchNews.pending,(state,action)=>{
+    builder.addCase(fetchNews.pending,(state)=>{
         state.isLoading = true
     })
     builder.addCase(fetchNews.fulfilled, (state, action)=>{

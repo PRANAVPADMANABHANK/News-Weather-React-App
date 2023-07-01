@@ -8,8 +8,8 @@ const home = () => {
   return (
     <>
       <Navbar />
-      <Search/>
-      <Filter/>
+      <Search />
+      <Filter />
       <FetchNews />
     </>
   );

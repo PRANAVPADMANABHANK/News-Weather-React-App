@@ -1,31 +1,75 @@
 .filter-container {
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  position: relative;
+  display: inline-block;
   margin-bottom: 20px;
 }
 
-.dropdown {
+.filter {
   position: relative;
+  display: flex;
+  align-items: center;
 }
 
-.dropdown-toggle {
-  background-color: #007bff; /* Customize the button background color */
-  color: #fff; /* Customize the button text color */
+.filter-input {
+  padding: 6px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  width: 90px;
+  font-size: 12px;
+  outline: none;
 }
 
-.dropdown-toggle:hover {
-  background-color: #0069d9; /* Customize the button background color on hover */
+.filter-icon {
+  margin-left: 6px;
+  cursor: pointer;
+  color: #888;
+  transition: transform 0.3s ease-in-out;
 }
 
-.dropdown-menu {
-  min-width: 150px; /* Adjust the width as needed */
+.rotate-icon {
+  transform: rotate(180deg);
 }
+
+.dropdown-content {
+  position: absolute;
+  top: calc(100% + 5px);
+  left: 0;
+  width: 90px; /* Adjust the width as desired */
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  max-height: 200px;
+  overflow-y: auto;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
 
 .dropdown-item {
-  color: #333; /* Customize the dropdown item text color */
+  padding: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s ease-in-out;
 }
 
 .dropdown-item:hover {
-  background-color: #f8f9fa; /* Customize the dropdown item background color on hover */
+  background-color: #f1f1f1;
+  color: #333;
+}
+
+.dropdown-item:last-child {
+  border-bottom: none;
+}
+
+.dropdown-item:before {
+  content: "";
+  display: inline-block;
+  vertical-align: middle;
+  width: 6px;
+  height: 6px;
+  margin-right: 4px;
+  background-color: blue;
+  border-radius: 50%;
+}
+
+.dropdown-item.active:before {
+  background-color: #333;
 }

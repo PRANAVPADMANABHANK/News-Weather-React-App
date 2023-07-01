@@ -1,32 +1,61 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
+import { FaAngleDown } from "react-icons/fa";
 import "./filter.css";
 
+// Import Redux
+import { useDispatch } from "react-redux";
+import { setLanguage } from "../../Redux/Slice/searchLanguage";
+
 const Filter = () => {
+  const language = ["en", "ml", "hi", "el", "ja", "it"];
+  const [filter, setFilter] = useState("");
+  const [displayDropDown, setDisplayDropdown] = useState(false);
+  const dispatch = useDispatch();
+
+  const handleDropdown = () => {
+    setDisplayDropdown(!displayDropDown);
+  };
+
+  const handleLanguageSelection = (selectedLanguage) => {
+    setFilter(selectedLanguage);
+    handleDropdown();
+  };
+
+  useEffect(() => {
+    if (filter !== "") {
+      dispatch(setLanguage(filter.toLowerCase()));
+    }
+  }, [dispatch, filter]);
+
   return (
     <section className="filter-container">
-      <div className="dropdown">
-        <button
-          className="btn btn-primary dropdown-toggle"
-          type="button"
-          id="filterDropdown"
-          data-toggle="dropdown"
-          aria-haspopup="true"
-          aria-expanded="false"
-        >
-          Filter by Language
-        </button>
-        <div className="dropdown-menu" aria-labelledby="filterDropdown">
-          <a className="dropdown-item" href="#">
-            Option 1
-          </a>
-          <a className="dropdown-item" href="#">
-            Option 2
-          </a>
-          <a className="dropdown-item" href="#">
-            Option 3
-          </a>
-        </div>
+      <div className="filter">
+        <input
+          type="text"
+          readOnly
+          placeholder="Filter by Language"
+          value={filter}
+          className="filter-input"
+        />
+        <FaAngleDown
+          className={`filter-icon ${displayDropDown ? "rotate-icon" : ""}`}
+          onClick={handleDropdown}
+        />
       </div>
+
+      {displayDropDown && (
+        <div className="dropdown-content">
+          {language.map((item, index) => (
+            <div
+              className="dropdown-item"
+              key={index}
+              onClick={() => handleLanguageSelection(item)}
+            >
+              {item}
+            </div>
+          ))}
+        </div>
+      )}
     </section>
   );
 };

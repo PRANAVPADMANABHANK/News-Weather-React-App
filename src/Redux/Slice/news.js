@@ -2,7 +2,7 @@ import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 
 // Action
 export const fetchNews = createAsyncThunk('fetchNews', async ()=>{
-    const response =await fetch('https://newsapi.org/v2/everything?q=apple&from=2023-06-28&to=2023-06-28&sortBy=popularity&apiKey=7d3bb61252064a1b82860e8f5f6fa1b9');
+    const response =await fetch('https://newsapi.org/v2/everything?domains=techcrunch.com,thenextweb.com&apiKey=7d3bb61252064a1b82860e8f5f6fa1b9');
     return response.json();
 })
 

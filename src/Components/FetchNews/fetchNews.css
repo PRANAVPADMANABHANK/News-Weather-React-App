@@ -1,10 +1,6 @@
 body {
   margin: 0;
-  background-color: rgb(
-    51,
-    49,
-    49
-  ); /* Added to set the background color to black */
+  background-color: rgba(28, 22, 22, 0.738); /* Added to set the background color to black */
 }
 .news-card {
   width: 100%;

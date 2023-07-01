@@ -46,6 +46,7 @@
   column-gap: 15px;
   display: grid;
   flex: 1 1;
+  font-weight: bold;
   grid-template-columns: auto auto;
   padding: 5px 15px;
   row-gap: 0;
@@ -59,7 +60,7 @@
 }
 
 .daily-details-grid-item label:first-child {
-  color: #9f9c9c;
+  color: #000000;
 }
 
 .daily-details-grid-item label:last-child {

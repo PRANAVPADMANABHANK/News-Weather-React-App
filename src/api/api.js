@@ -1,3 +1,4 @@
+//Location api from geo-db rapidapi.com
 export const geoApiOptions = {
 	method: 'GET',
 	headers: {
@@ -8,3 +9,6 @@ export const geoApiOptions = {
 
 export const GEO_API_URL = 'https://wft-geo-db.p.rapidapi.com/v1/geo'
 
+//Weather api from openweathermap.org
+export const WEATHER_API_URL = 'https://api.openweathermap.org/data/2.5'
+export const WEATHER_API_KEY = '9bd22c3a3899a34848d9f46e4e5dd6fe'

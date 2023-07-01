@@ -2,8 +2,10 @@ import React, { useState } from "react";
 import Navbar from "../../Components/Navbar/navbar";
 import SearchCountry from "../../Components/SearchCountry/searchCountry";
 import CurrentWeather from "../../Components/CurrentWeather/currentWeather";
-import "./weather.css";
+import Heading from "../../Components/Heading/heading";
 import { WEATHER_API_KEY, WEATHER_API_URL } from "../../api/api";
+import Forecast from "../../Components/Forecast/forecast";
+import "./weather.css";
 
 const Weather = () => {
   const [currentWeather, setCurrentWeather] = useState(null);
@@ -16,7 +18,7 @@ const Weather = () => {
       `${WEATHER_API_URL}/weather?lat=${lat}&lon=${lon}&appid=${WEATHER_API_KEY}&units=metric`
     );
     const foreCastFetch = fetch(
-      `${WEATHER_API_URL}/weather?lat=${lat}&lon=${lon}&appid=${WEATHER_API_KEY}&units=metric`
+      `${WEATHER_API_URL}/forecast?lat=${lat}&lon=${lon}&appid=${WEATHER_API_KEY}&units=metric`
     );
 
     Promise.all([currentWeatherFetch, foreCastFetch])
@@ -31,15 +33,14 @@ const Weather = () => {
       });
   };
 
-  console.log(currentWeather, "//////");
-  console.log(forecast, "????????");
-
   return (
     <>
       <Navbar />
+      <Heading />
       <div className="container">
         <SearchCountry onSearchChange={handleOnSearchChange} />
         {currentWeather && <CurrentWeather data={currentWeather} />}
+        {forecast && <Forecast data={forecast} />}
       </div>
     </>
   );

@@ -58,7 +58,8 @@ const FetchNews = () => {
                   <p className="card-source">Source: {article.source.name}</p>
                   <p className="card-author">By {article.author}</p>
                   <p className="card-date">
-                    Published: {new Date(article.publishedAt).toLocaleDateString()}
+                    Published:{" "}
+                    {new Date(article.publishedAt).toLocaleDateString()}
                   </p>
                   <p className="card-description">{article.description}</p>
                 </div>

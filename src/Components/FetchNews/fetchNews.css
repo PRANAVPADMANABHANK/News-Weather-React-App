@@ -1,15 +1,19 @@
 body {
   margin: 0;
-  background-color: rgb(51, 49, 49); /* Added to set the background color to black */
+  background-color: rgb(
+    51,
+    49,
+    49
+  ); /* Added to set the background color to black */
 }
 .news-card {
-    width: 100%;
-  }
-  
-  .news-card .card-img-top {
-    transition: transform 0.3s ease;
-  }
-  
-  .news-card .card-img-top:hover {
-    transform: scale(1.05);
-  }
+  width: 100%;
+}
+
+.news-card .card-img-top {
+  transition: transform 0.3s ease;
+}
+
+.news-card .card-img-top:hover {
+  transform: scale(1.05);
+}

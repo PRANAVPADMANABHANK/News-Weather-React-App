@@ -33,10 +33,15 @@ const Filter = () => {
   };
 
   const handleLanguageSelection = (selectedLanguage) => {
-    setFilter(selectedLanguage);
-    handleDropdown();
-    const languageCode = languageMap[selectedLanguage];
-    dispatch(fetchNews(languageCode));
+    const shouldChangeLanguage = window.confirm(
+      "Are you sure you want to change the language?"
+    );
+    if (shouldChangeLanguage) {
+      setFilter(selectedLanguage);
+      handleDropdown();
+      const languageCode = languageMap[selectedLanguage];
+      dispatch(fetchNews(languageCode));
+    }
   };
 
   return (

@@ -13,3 +13,50 @@ body {
 .news-card .card-img-top:hover {
   transform: scale(1.05);
 }
+.news-card {
+  background-color: #f8f8f8;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: box-shadow 0.3s ease;
+}
+
+.news-card:hover {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.news-card .card-img-top {
+  border-top-left-radius: 4px;
+  border-top-right-radius: 4px;
+}
+
+.news-card .card-body {
+  padding: 10px;
+}
+
+.news-card .card-title {
+  font-size: 16px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.news-card .card-source {
+  font-size: 12px;
+  color: #777;
+}
+
+.news-card .card-author {
+  font-size: 12px;
+  color: #777;
+}
+
+.news-card .card-footer {
+  background-color: #f8f8f8;
+  border-top: 1px solid #ddd;
+  padding: 5px 10px;
+}
+
+.news-card .card-footer small {
+  font-size: 12px;
+  color: #777;
+}

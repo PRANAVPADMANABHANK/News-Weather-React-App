@@ -10,10 +10,11 @@ import { useDispatch, useSelector } from "react-redux";
 const FetchNews = () => {
   const dispatch = useDispatch();
   const state = useSelector((state) => state);
+  console.log(state);
 
   useEffect(() => {
     dispatch(fetchNews());
-  }, [dispatch]);
+  }, []);
 
   // Beatloader component from react-spinners library to show animation
   if (state.news.isLoading) {

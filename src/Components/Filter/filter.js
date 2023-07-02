@@ -1,10 +1,10 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { FaAngleDown } from "react-icons/fa";
 import "./filter.css";
 
 // Import Redux
 import { useDispatch } from "react-redux";
-import { setLanguage } from "../../Redux/Slice/searchLanguage";
+import { fetchNews } from "../../Redux/Slice/news";
 
 const Filter = () => {
   const language = ["en", "ml", "hi", "el", "ja", "it"];
@@ -19,13 +19,11 @@ const Filter = () => {
   const handleLanguageSelection = (selectedLanguage) => {
     setFilter(selectedLanguage);
     handleDropdown();
+    console.log(selectedLanguage,"///////");
+    dispatch(fetchNews(selectedLanguage));
   };
 
-  useEffect(() => {
-    if (filter !== "") {
-      dispatch(setLanguage(filter.toLowerCase()));
-    }
-  }, [dispatch, filter]);
+  
 
   return (
     <section className="filter-container">

@@ -1,19 +1,27 @@
-import React from "react";
+import React, {useState} from "react";
 import { FaSearch } from "react-icons/fa";
 import "./search.css";
 
 const Search = () => {
+  const [term, setTerm] = useState("")
+  const submitHandler= (event) =>{
+    event.preventDefault();
+    console.log(term)
+  }
   return (
     <section className="search-container">
       <div className="search-wrapper">
-        <input
-          type="text"
-          placeholder="Search for news"
-          className="search-input"
-        />
-        <button className="search-button" type="button">
-          <FaSearch className="search-icon" />
-        </button>
+        <form onSubmit={submitHandler}>
+          <input
+            type="text"
+            placeholder="Search for news"
+            className="search-input"
+            onChange={(event)=>setTerm(event.target.value)}
+          />
+          <button className="search-button" type="submit">
+            <FaSearch className="search-icon" />
+          </button>
+        </form>
       </div>
     </section>
   );

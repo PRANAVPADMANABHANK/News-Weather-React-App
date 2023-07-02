@@ -40,13 +40,20 @@ const FetchNews = () => {
       })
     : [];
 
+  const handleCardClick = (url) => {
+    window.open(url, "_blank"); // Open link in a new tab
+  };
+
   return (
     <>
       <div className="container">
         <div className="row">
           {sortedArticles.map((article, index) => (
             <div className="col-md-4 mb-4" key={index}>
-              <div className="card news-card h-100">
+              <div
+                className="card news-card h-100"
+                onClick={() => handleCardClick(article.url)}
+              >
                 {article.urlToImage && (
                   <img
                     src={article.urlToImage}
@@ -58,16 +65,11 @@ const FetchNews = () => {
                   <h5 className="card-title">{article.title}</h5>
                   <p className="card-source">Source: {article.source.name}</p>
                   <p className="card-author">By {article.author}</p>
-                  <p className="card-date">
-                    Published:{" "}
-                    {new Date(article.publishedAt).toLocaleDateString()}
-                  </p>
-                  <p className="card-description">{article.description}</p>
                 </div>
                 <div className="card-footer">
-                  <a href={article.url} className="btn btn-primary">
-                    Read More
-                  </a>
+                  <small className="text-muted">
+                    Published: {new Date(article.publishedAt).toLocaleDateString()}
+                  </small>
                 </div>
               </div>
             </div>

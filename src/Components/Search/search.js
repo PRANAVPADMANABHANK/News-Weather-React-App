@@ -1,13 +1,19 @@
-import React, {useState} from "react";
+import React, { useState } from "react";
 import { FaSearch } from "react-icons/fa";
 import "./search.css";
+import { fetchNews } from "../../Redux/Slice/news";
+import { useDispatch } from "react-redux";
 
 const Search = () => {
-  const [term, setTerm] = useState("")
-  const submitHandler= (event) =>{
+  const [term, setTerm] = useState("");
+  const dispatch = useDispatch();
+
+  const submitHandler = (event) => {
     event.preventDefault();
-    console.log(term)
-  }
+    console.log(term, "//////////");
+    dispatch(fetchNews(term));
+  };
+
   return (
     <section className="search-container">
       <div className="search-wrapper">
@@ -16,7 +22,7 @@ const Search = () => {
             type="text"
             placeholder="Search for news"
             className="search-input"
-            onChange={(event)=>setTerm(event.target.value)}
+            onChange={(event) => setTerm(event.target.value)}
           />
           <button className="search-button" type="submit">
             <FaSearch className="search-icon" />

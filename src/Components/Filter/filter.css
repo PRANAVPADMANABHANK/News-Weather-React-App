@@ -14,7 +14,7 @@
   padding: 6px;
   border: 1px solid #ccc;
   border-radius: 4px;
-  width: 90px;
+  width: 120px;
   font-size: 12px;
   outline: none;
 }
@@ -22,7 +22,7 @@
 .filter-icon {
   margin-left: 6px;
   cursor: pointer;
-  color: #888;
+  color: #000000;
   transition: transform 0.3s ease-in-out;
 }
 
@@ -34,7 +34,7 @@
   position: absolute;
   top: calc(100% + 5px);
   left: 0;
-  width: 90px; 
+  width: 120px; 
   background-color: #fff;
   border: 1px solid #ccc;
   border-radius: 4px;

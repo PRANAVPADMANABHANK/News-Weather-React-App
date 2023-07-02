@@ -7,7 +7,23 @@ import { useDispatch } from "react-redux";
 import { fetchNews } from "../../Redux/Slice/news";
 
 const Filter = () => {
-  const language = ["en", "ml", "hi", "el", "ja", "it"];
+  const languageMap = {
+    Arabic: "ar",
+    German: "de",
+    English: "en",
+    Spanish: "es",
+    French: "fr",
+    Hebrew: "he",
+    Italian: "it",
+    Dutch: "nl",
+    Norwegian: "no",
+    Portuguese: "pt",
+    Russian: "ru",
+    Swedish: "sv",
+    Chinese: "zh"
+  };
+
+  const language = Object.keys(languageMap);
   const [filter, setFilter] = useState("");
   const [displayDropDown, setDisplayDropdown] = useState(false);
   const dispatch = useDispatch();
@@ -19,11 +35,9 @@ const Filter = () => {
   const handleLanguageSelection = (selectedLanguage) => {
     setFilter(selectedLanguage);
     handleDropdown();
-    console.log(selectedLanguage,"///////");
-    dispatch(fetchNews(selectedLanguage));
+    const languageCode = languageMap[selectedLanguage];
+    dispatch(fetchNews(languageCode));
   };
-
-  
 
   return (
     <section className="filter-container">

@@ -1,19 +1,18 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
+import { NEWS_API_KEY } from "../../api/api";
 
 // Action
 export const fetchNews = createAsyncThunk(
   "news/fetchNews",
   async (selectedLanguage) => {
-    console.log(selectedLanguage, "]]]]]]]]]]]]");
-
     if (!selectedLanguage) {
       const response = await fetch(
-        "https://newsapi.org/v2/everything?q=bitcoin&apiKey=7d3bb61252064a1b82860e8f5f6fa1b9"
+        `https://newsapi.org/v2/everything?q=bitcoin&apiKey=${NEWS_API_KEY}`
       );
       return response.json();
     } else {
       const response = await fetch(
-        `https://newsapi.org/v2/everything?q=bitcoin&apiKey=7d3bb61252064a1b82860e8f5f6fa1b9&language=${selectedLanguage}`
+        `https://newsapi.org/v2/everything?q=bitcoin&apiKey=${NEWS_API_KEY}&language=${selectedLanguage}`
       );
       return response.json();
     }
@@ -30,7 +29,6 @@ const newsSlice = createSlice({
   reducers: {
     addLang: (state, action) => {
       state.language = action.payload; // Update language state with selected language
-      console.log(action.payload, ";;;;;;;;;;;;;;;;;;;;;;;;;");
     },
   },
   extraReducers: (builder) => {

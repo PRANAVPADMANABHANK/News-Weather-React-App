@@ -3,7 +3,7 @@ import Navbar from "../../Components/Navbar/navbar";
 import SearchCountry from "../../Components/SearchCountry/searchCountry";
 import CurrentWeather from "../../Components/CurrentWeather/currentWeather";
 import Heading from "../../Components/Heading/heading";
-import { WEATHER_API_KEY, WEATHER_API_URL } from "../../api/api";
+import { WEATHER_API_URL } from "../../api/api";
 import Forecast from "../../Components/Forecast/forecast";
 import "./weather.css";
 
@@ -15,10 +15,10 @@ const Weather = () => {
     const [lat, lon] = searchData.value.split("");
 
     const currentWeatherFetch = fetch(
-      `${WEATHER_API_URL}/weather?lat=${lat}&lon=${lon}&appid=${WEATHER_API_KEY}&units=metric`
+      `${WEATHER_API_URL}/weather?lat=${lat}&lon=${lon}&appid=${process.env.REACT_APP_WEATHER_API_KEY}&units=metric`
     );
     const foreCastFetch = fetch(
-      `${WEATHER_API_URL}/forecast?lat=${lat}&lon=${lon}&appid=${WEATHER_API_KEY}&units=metric`
+      `${WEATHER_API_URL}/forecast?lat=${lat}&lon=${lon}&appid=${process.env.REACT_APP_WEATHER_API_KEY}&units=metric`
     );
 
     Promise.all([currentWeatherFetch, foreCastFetch])

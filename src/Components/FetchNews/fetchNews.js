@@ -3,6 +3,7 @@ import { fetchNews } from "../../Redux/Slice/news";
 import { css } from "@emotion/react";
 import { BeatLoader } from "react-spinners";
 import "../FetchNews/fetchNews.css";
+import useUnsavedChangesWarnings from "../../CustomHook/useUnsavedChangesWarnings";
 
 // from redux
 import { useDispatch, useSelector } from "react-redux";
@@ -10,11 +11,29 @@ import { useDispatch, useSelector } from "react-redux";
 const FetchNews = () => {
   const dispatch = useDispatch();
   const state = useSelector((state) => state);
-  console.log(state);
+  const { setDirty, setClean } = useUnsavedChangesWarnings(
+    "Are you sure you want to leave this page?"
+  );
 
   useEffect(() => {
     dispatch(fetchNews());
   }, []);
+
+  useEffect(() => {
+    window.addEventListener("beforeunload", handleBeforeUnload);
+
+    return () => {
+      window.removeEventListener("beforeunload", handleBeforeUnload);
+    };
+  }, []);
+
+  const handleBeforeUnload = (event) => {
+    if (setDirty && setDirty instanceof Function) {
+      setDirty();
+    }
+    event.preventDefault();
+    event.returnValue = ""; // This is required for Chrome
+  };
 
   // Beatloader component from react-spinners library to show animation
   if (state.news.isLoading) {

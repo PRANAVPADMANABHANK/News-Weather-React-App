@@ -20,7 +20,7 @@ const Filter = () => {
     Portuguese: "pt",
     Russian: "ru",
     Swedish: "sv",
-    Chinese: "zh"
+    Chinese: "zh",
   };
 
   const language = Object.keys(languageMap);

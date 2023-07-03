@@ -46,38 +46,38 @@ const FetchNews = () => {
 
   return (
     <>
-    <div className="container">
-      <div className="row">
-        {sortedArticles.map((article, index) => (
-          <div className="col-md-4 mb-4" key={index}>
-            <div
-              className="card news-card h-100"
-              onClick={() => handleCardClick(article.url)}
-            >
-              {article.urlToImage && (
-                <img
-                  src={article.urlToImage}
-                  className="card-img-top"
-                  alt={article.title}
-                />
-              )}
-              <div className="card-body">
-                <h5 className="card-title">{article.title}</h5>
-                <p className="card-source">Source: {article.source.name}</p>
-                <p className="card-author">By {article.author}</p>
-              </div>
-              <div className="card-footer">
-                <small className="text-muted">
-                  Published: {new Date(article.publishedAt).toLocaleDateString()}
-                </small>
+      <div className="container">
+        <div className="row">
+          {sortedArticles.map((article, index) => (
+            <div className="col-md-4 mb-4" key={index}>
+              <div
+                className="card news-card h-100"
+                onClick={() => handleCardClick(article.url)}
+              >
+                {article.urlToImage && (
+                  <img
+                    src={article.urlToImage}
+                    className="card-img-top"
+                    alt={article.title}
+                  />
+                )}
+                <div className="card-body">
+                  <h5 className="card-title">{article.title}</h5>
+                  <p className="card-source">Source: {article.source.name}</p>
+                  <p className="card-author">By {article.author}</p>
+                </div>
+                <div className="card-footer">
+                  <small className="text-muted">
+                    Published:{" "}
+                    {new Date(article.publishedAt).toLocaleDateString()}
+                  </small>
+                </div>
               </div>
             </div>
-          </div>
-        ))}
+          ))}
+        </div>
       </div>
-    </div>
-  </>
-  
+    </>
   );
 };
 

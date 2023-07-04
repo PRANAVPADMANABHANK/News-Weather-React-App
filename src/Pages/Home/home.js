@@ -4,7 +4,7 @@ import FetchNews from "../../Components/FetchNews/fetchNews";
 import Search from "../../Components/Search/search";
 import Filter from "../../Components/Filter/filter";
 
-const home = () => {
+const Home = () => {
   return (
     <>
       <Navbar />
@@ -15,4 +15,4 @@ const home = () => {
   );
 };
 
-export default home;
+export default Home;

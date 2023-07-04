@@ -11,8 +11,9 @@ import { useDispatch, useSelector } from "react-redux";
 const FetchNews = () => {
   const dispatch = useDispatch();
   const state = useSelector((state) => state);
-  console.log(state);
+  
   useBeforeUnload("Are you sure you want to leave this page?");
+  
   useEffect(() => {
     dispatch(fetchNews());
   }, []);

@@ -5,7 +5,6 @@
   margin-top: 90px;
 }
 
-
 .filter {
   position: relative;
   display: flex;
@@ -36,7 +35,7 @@
   position: absolute;
   top: calc(100% + 5px);
   left: 0;
-  width: 120px; 
+  width: 120px;
   background-color: #fff;
   border: 1px solid #ccc;
   border-radius: 4px;

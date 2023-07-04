@@ -17,7 +17,7 @@ const FetchNews = () => {
 
   useEffect(() => {
     dispatch(fetchNews());
-  }, []);
+  }, [dispatch]);
 
   useEffect(() => {
     window.addEventListener("beforeunload", handleBeforeUnload);

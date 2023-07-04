@@ -8,26 +8,33 @@ export const fetchNews = createAsyncThunk(
       const response = await fetch(
         `https://newsapi.org/v2/everything?q=bitcoin&apiKey=${process.env.REACT_APP_NEWS_API_KEY}`
       );
-      return response.json();
+      const data = await response.json();
+      console.log(data); // Log the data when no language is selected
+      return data;
     } else {
+      console.log(selectedLanguage, "selected lang redux");
       const response = await fetch(
         `https://newsapi.org/v2/everything?q=bitcoin&apiKey=${process.env.REACT_APP_NEWS_API_KEY}&language=${selectedLanguage}`
       );
-      return response.json();
+      const data = await response.json();
+      console.log(data); // Log the data when a language is selected
+      return data;
     }
   }
 );
+
 
 export const searchNewsByTerm = createAsyncThunk(
   "news/searchNewsByTerm",
   async (searchTerm) => {
     let apiUrl;
     if (searchTerm) {
+      console.log(searchTerm,"search term")
       apiUrl = `https://newsapi.org/v2/everything?q=${searchTerm}&apiKey=${process.env.REACT_APP_NEWS_API_KEY}`;
     } else {
       apiUrl = `https://newsapi.org/v2/everything?q=bitcoin&apiKey=${process.env.REACT_APP_NEWS_API_KEY}`;
     }
-
+    console.log(apiUrl,"searched url")
     const response = await fetch(apiUrl);
     return response.json();
   }

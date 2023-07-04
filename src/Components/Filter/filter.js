@@ -40,6 +40,7 @@ const Filter = () => {
       setFilter(selectedLanguage);
       handleDropdown();
       const languageCode = languageMap[selectedLanguage];
+      console.log(languageCode)
       dispatch(fetchNews(languageCode));
     }
   };

@@ -2,16 +2,17 @@ import React, { useEffect } from "react";
 import { fetchNews } from "../../Redux/Slice/news";
 import { css } from "@emotion/react";
 import { BeatLoader } from "react-spinners";
+import useBeforeUnload from "../CustomHook/useBeforeUnload";
 import "../FetchNews/fetchNews.css";
-
 // from redux
 import { useDispatch, useSelector } from "react-redux";
+
 
 const FetchNews = () => {
   const dispatch = useDispatch();
   const state = useSelector((state) => state);
   console.log(state);
-
+  useBeforeUnload("Are you sure you want to leave this page?");
   useEffect(() => {
     dispatch(fetchNews());
   }, []);

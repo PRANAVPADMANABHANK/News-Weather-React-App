@@ -1,8 +1,10 @@
 .filter-container {
-  position: relative;
-  display: inline-block;
-  margin-bottom: 20px;
+  position: absolute;
+  top: 0;
+  right: 0;
+  margin-top: 90px;
 }
+
 
 .filter {
   position: relative;

@@ -1,7 +1,7 @@
 .title {
   font-size: 23px;
   font-weight: 700;
-  color: white;
+  color: rgb(42, 36, 36);
 }
 
 .daily-item {
@@ -64,5 +64,5 @@
 }
 
 .daily-details-grid-item label:last-child {
-  color: #fff;
+  color: #365e3c;
 }

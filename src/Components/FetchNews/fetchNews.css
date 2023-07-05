@@ -1,6 +1,6 @@
 body {
   margin: 0;
-  background-color: rgba(28, 22, 22, 0.738);
+  background-color: rgba(243, 183, 183, 0.716);
 }
 .news-card {
   width: 100%;
@@ -59,4 +59,11 @@ body {
 .news-card .card-footer small {
   font-size: 12px;
   color: #777;
+}
+
+.loading-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
 }

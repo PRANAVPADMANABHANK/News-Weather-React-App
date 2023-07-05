@@ -9,7 +9,7 @@ main {
 .navbar {
   display: flex;
   align-items: center;
-
+  
   background: rgb(29, 24, 24);
   color: white;
   font-family: Helvetica;

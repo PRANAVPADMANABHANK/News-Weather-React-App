@@ -2,8 +2,10 @@
   display: flex;
   justify-content: center;
   align-items: center;
+ 
 }
 
 .heading {
-  color: white;
+  font-family: 'Roboto';
+  color: rgb(73, 34, 34);
 }

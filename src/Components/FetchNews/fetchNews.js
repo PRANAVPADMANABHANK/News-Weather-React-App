@@ -3,8 +3,8 @@ import { fetchNews } from "../../Redux/Slice/news";
 import { css } from "@emotion/react";
 import { BeatLoader } from "react-spinners";
 import useBeforeUnload from "../CustomHook/useBeforeUnload";
-import "../FetchNews/fetchNews.css";
 import { useDispatch, useSelector } from "react-redux";
+import "../FetchNews/fetchNews.css";
 
 const FetchNews = () => {
   let page = 1;
@@ -85,7 +85,7 @@ const FetchNews = () => {
       </div>
       {loading && (
         <div className="loading-container">
-          <BeatLoader color={"#fff"} loading={loading} css={loaderStyles} />
+          <BeatLoader color={"#000"} loading={loading} css={loaderStyles} />
         </div>
       )}
     </>

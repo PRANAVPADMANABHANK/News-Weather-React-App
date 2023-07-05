@@ -28,7 +28,7 @@ const Forecast = ({ data }) => {
 
   return (
     <>
-      <label className="title">Daily</label>
+      <label className="title">DAILY FORECAST</label>
       <Accordion allowZeroExpanded>
         {list.map((item, key) => (
           <AccordionItem key={key}>

@@ -8,7 +8,6 @@ import Forecast from "../../Components/Forecast/forecast";
 import useBeforeUnload from "../../Components/CustomHook/useBeforeUnload";
 import "./weather.css";
 
-
 const Weather = () => {
   const [currentWeather, setCurrentWeather] = useState(null);
   const [forecast, setForecast] = useState(null);

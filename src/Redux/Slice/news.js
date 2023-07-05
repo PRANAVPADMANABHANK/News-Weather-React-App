@@ -1,23 +1,22 @@
+// newsSlice.js
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import { NEWS_API_KEY } from "../../api/api";
 
 const PAGE_SIZE = 10;
 
-export const fetchNews = createAsyncThunk(
-  "news/fetchNews",
-  async (selectedLanguage) => {
-    const apiUrl = `https://newsapi.org/v2/everything?q=bitcoin&apiKey=${NEWS_API_KEY}&pageSize=${PAGE_SIZE}&language=${selectedLanguage || ''}`;
-
-    const response = await fetch(apiUrl);
-    return response.json();
-  }
-);
+export const fetchNews = createAsyncThunk("news/fetchNews", async (data) => {
+  const { languageCode, page } = data;
+  const limit = page * PAGE_SIZE;
+  const skip = (page-1)*PAGE_SIZE
+  const apiUrl = `https://newsapi.org/v2/everything?q=bitcoin&apiKey=${NEWS_API_KEY}&pageSize=${limit}&language=${languageCode || ''}&skip=${skip}`;
+  const response = await fetch(apiUrl);
+  return response.json();
+});
 
 export const searchNewsByTerm = createAsyncThunk(
   "news/searchNewsByTerm",
   async (searchTerm) => {
-    const apiUrl = `https://newsapi.org/v2/everything?q=${searchTerm || 'bitcoin'}&apiKey=${NEWS_API_KEY}&pageSize=${PAGE_SIZE}`;
-
+    const apiUrl = `https://newsapi.org/v2/everything?q=${searchTerm || "bitcoin"}&apiKey=${NEWS_API_KEY}&pageSize=${PAGE_SIZE}`;
     const response = await fetch(apiUrl);
     return response.json();
   }

@@ -1,22 +1,17 @@
-import React from "react";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faArrowUp } from "@fortawesome/free-solid-svg-icons";
-import "./buttonScrollTop.css";
+import React from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faArrowUp } from '@fortawesome/free-solid-svg-icons';
+import './buttonScrollTop.css';
 
-const ButtonScrollTop = ({ onClick, show }) => {
-  const handleClick = () => {
-    if (onClick) {
-      onClick();
-    }
+const ButtonScrollTop = () => {
+  const goToTop = () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
   return (
-    <button
-      className={`scroll-to-top ${show ? "active" : ""}`}
-      onClick={handleClick}
-    >
+    <div className="scroll-top" onClick={goToTop}>
       <FontAwesomeIcon icon={faArrowUp} className="arrow-icon" />
-    </button>
+    </div>
   );
 };
 

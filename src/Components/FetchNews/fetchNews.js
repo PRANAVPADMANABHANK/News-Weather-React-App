@@ -4,7 +4,9 @@ import { css } from "@emotion/react";
 import { BeatLoader } from "react-spinners";
 import useBeforeUnload from "../CustomHook/useBeforeUnload";
 import { useDispatch, useSelector } from "react-redux";
+import ButtonScrollTop from "../ButtonScrollTop/buttonScrollTop";
 import "../FetchNews/fetchNews.css";
+
 
 const FetchNews = () => {
   let page = 1;
@@ -48,6 +50,7 @@ const FetchNews = () => {
 
   return (
     <>
+    <ButtonScrollTop/>
       <div className="container">
         <div className="row">
           {(sortedArticles || []).map((article, index) => (
@@ -88,6 +91,7 @@ const FetchNews = () => {
           <BeatLoader color={"#000"} loading={loading} css={loaderStyles} />
         </div>
       )}
+      
     </>
   );
 };

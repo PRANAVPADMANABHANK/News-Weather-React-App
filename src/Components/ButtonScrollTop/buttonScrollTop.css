@@ -1,25 +1,24 @@
-.scroll-to-top {
+.scroll-top {
     position: fixed;
     bottom: 20px;
     right: 20px;
-    width: 40px;
-    height: 40px;
-    border: none;
+    width: 50px;
+    height: 50px;
     border-radius: 50%;
     background-color: #333;
     color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     cursor: pointer;
-    opacity: 0;
-    visibility: hidden;
-    transition: opacity 0.3s ease, visibility 0.3s ease;
+    transition: background-color 0.3s ease-in-out;
   }
   
-  .scroll-to-top.active {
-    opacity: 1;
-    visibility: visible;
+  .scroll-top:hover {
+    background-color: #555;
   }
   
-  .arrow-icon {
-    font-size: 20px;
+  .scroll-top .arrow-icon {
+    font-size: 24px;
   }
   

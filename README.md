@@ -6,6 +6,10 @@ Introduction:
 The Local Language News Aggregator with Weather Information is a web application developed using React and Redux. It combines news aggregation functionality with real-time weather updates based on the user's geolocation. The project aims to deliver a personalized and informative experience to users, allowing them to stay updated on the latest news articles while being aware of the current weather conditions, including a forecast for multiple days.
 
 
+Prepared By:
+This project was prepared by Pranav K. You can contact me at pranavkkeloth@gmail.com.
+
+
 Key Features
 
 News Aggregation

@@ -11,8 +11,9 @@ const FetchNews = () => {
 
   const dispatch = useDispatch();
   const state = useSelector((state) => state);
+  const [loading, setLoading] = useState(true);
 
-  //custom hook for page refresh warning.
+  // Custom hook for page refresh warning.
   useBeforeUnload("Are you sure you want to leave this page?");
 
   const handleScroll = () => {
@@ -24,7 +25,9 @@ const FetchNews = () => {
   };
 
   useEffect(() => {
-    dispatch(fetchNews({ selectedLanguage: "", page }));
+    dispatch(fetchNews({ selectedLanguage: "", page })).then(() => {
+      setLoading(false);
+    });
     window.addEventListener("scroll", handleScroll);
     return () => {
       window.removeEventListener("scroll", handleScroll);
@@ -42,6 +45,7 @@ const FetchNews = () => {
   const handleCardClick = (url) => {
     window.open(url, "_blank");
   };
+
   return (
     <>
       <div className="container">
@@ -79,8 +83,20 @@ const FetchNews = () => {
           ))}
         </div>
       </div>
+      {loading && (
+        <div className="loading-container">
+          <BeatLoader color={"#fff"} loading={loading} css={loaderStyles} />
+        </div>
+      )}
     </>
   );
 };
 
 export default FetchNews;
+
+//css for beatloader
+const loaderStyles = css`
+  display: block;
+  margin: 0 auto;
+  margin-top: 20px;
+`;

@@ -1,7 +1,5 @@
 import React, { useEffect, useState } from "react";
 import { fetchNews } from "../../Redux/Slice/news";
-import { css } from "@emotion/react";
-import { BeatLoader } from "react-spinners";
 import useBeforeUnload from "../CustomHook/useBeforeUnload";
 import { useDispatch, useSelector } from "react-redux";
 import ButtonScrollTop from "../ButtonScrollTop/buttonScrollTop";
@@ -19,7 +17,7 @@ const FetchNews = () => {
 
   const handleScroll = () => {
     const { scrollTop, clientHeight, scrollHeight } = document.documentElement;
-    const isScrollingToBottom = scrollTop + clientHeight >= scrollHeight - 3;
+    const isScrollingToBottom = scrollTop + clientHeight >= scrollHeight;
 
     if (isScrollingToBottom) {
       setLoading(true); // Set loading state to true before fetching new data
@@ -101,10 +99,3 @@ const FetchNews = () => {
 };
 
 export default FetchNews;
-
-//css for beatloader
-const loaderStyles = css`
-  display: block;
-  margin: 0 auto;
-  margin-top: 20px;
-`;

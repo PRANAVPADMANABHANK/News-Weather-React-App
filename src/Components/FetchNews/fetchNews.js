@@ -7,7 +7,6 @@ import { useDispatch, useSelector } from "react-redux";
 import ButtonScrollTop from "../ButtonScrollTop/buttonScrollTop";
 import "../FetchNews/fetchNews.css";
 
-
 const FetchNews = () => {
   let page = 1;
 
@@ -20,9 +19,15 @@ const FetchNews = () => {
 
   const handleScroll = () => {
     const { scrollTop, clientHeight, scrollHeight } = document.documentElement;
-    if (scrollTop + clientHeight >= scrollHeight) {
-      dispatch(fetchNews({ languageCode: "", page }));
-      page++;
+    const isScrollingToBottom = scrollTop + clientHeight >= scrollHeight - 3;
+
+    if (isScrollingToBottom) {
+      setLoading(true); // Set loading state to true before fetching new data
+
+      dispatch(fetchNews({ languageCode: "", page })).then(() => {
+        setLoading(false); // Set loading state to false after data is fetched
+        page++;
+      });
     }
   };
 
@@ -50,7 +55,7 @@ const FetchNews = () => {
 
   return (
     <>
-    <ButtonScrollTop/>
+      <ButtonScrollTop />
       <div className="container">
         <div className="row">
           {(sortedArticles || []).map((article, index) => (
@@ -88,10 +93,9 @@ const FetchNews = () => {
       </div>
       {loading && (
         <div className="loading-container">
-          <BeatLoader color={"#000"} loading={loading} css={loaderStyles} />
+          <div className="round-loader"></div>
         </div>
       )}
-      
     </>
   );
 };

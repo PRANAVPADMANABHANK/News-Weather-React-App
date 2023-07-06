@@ -1,5 +1,6 @@
 PROJECT NAME: News Aggregator with Weather Information React Application
 
+PROJECT LINK: https://news-weather-info.netlify.app
 
 Introduction:
 

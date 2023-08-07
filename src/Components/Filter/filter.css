@@ -1,8 +1,15 @@
 .filter-container {
+<<<<<<< HEAD
   position: fixed;
   top: 92px;
   right: 20px;
   z-index: 999;
+=======
+  position: absolute;
+  top: 0;
+  right: 0;
+  margin-top: 90px;
+>>>>>>> feature
 }
 
 @media (max-width: 768px) {
@@ -30,9 +37,24 @@
     transform: translateX(-50%);
   }
 
+<<<<<<< HEAD
   .dropdown-item {
     color: #fffcfc; /* Change the color to your desired value */
   }
+=======
+.dropdown-content {
+  position: absolute;
+  top: calc(100% + 5px);
+  left: 0;
+  width: 120px;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  max-height: 200px;
+  overflow-y: auto;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+>>>>>>> feature
 
   .dropdown-item:hover {
     background-color: #f1f1f1;

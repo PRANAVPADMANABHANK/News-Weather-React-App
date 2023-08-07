@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import { FaSearch } from "react-icons/fa";
-import "./search.css";
 import { searchNewsByTerm } from "../../Redux/Slice/news";
 import { useDispatch } from "react-redux";
+import "./search.css";
 
 const Search = () => {
   const [term, setTerm] = useState("");
@@ -10,6 +10,7 @@ const Search = () => {
 
   const submitHandler = (event) => {
     event.preventDefault();
+    
     dispatch(searchNewsByTerm(term));
   };
 

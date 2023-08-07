@@ -5,12 +5,13 @@ import CurrentWeather from "../../Components/CurrentWeather/currentWeather";
 import Heading from "../../Components/Heading/heading";
 import { WEATHER_API_URL } from "../../api/api";
 import Forecast from "../../Components/Forecast/forecast";
+import useBeforeUnload from "../../Components/CustomHook/useBeforeUnload";
 import "./weather.css";
 
 const Weather = () => {
   const [currentWeather, setCurrentWeather] = useState(null);
   const [forecast, setForecast] = useState(null);
-
+  useBeforeUnload("Are you sure you want to leave this page?");
   const handleOnSearchChange = (searchData) => {
     const [lat, lon] = searchData.value.split("");
 

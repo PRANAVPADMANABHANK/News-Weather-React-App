@@ -1,15 +1,8 @@
 .filter-container {
-<<<<<<< HEAD
   position: fixed;
   top: 92px;
   right: 20px;
   z-index: 999;
-=======
-  position: absolute;
-  top: 0;
-  right: 0;
-  margin-top: 90px;
->>>>>>> feature
 }
 
 @media (max-width: 768px) {
